@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Credit Card Loan PayOff" icon-name="standard:account">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4"
+                flexibility="auto" padding="around-small">
+                <lightning-input type="number" name="outLoanAmtInput" label="Outstanding Loan Amount (INR)" step="0.01">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4"
+                style="margin-top: -17px;" padding="around-small">
+                <lightning-input type="number" name="perMonAmtInput"
+                    label="How much payment you are planning every month? (INR)" step="0.01"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4"
+                flexibility="auto" padding="around-small">
+                <lightning-input type="number" name="monInterestInput" label="Monthly Interest Rate %" step="0.01">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12"
+                flexibility="auto" padding="around-small">
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleClickSubmit}
+                        class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button variant="brand" label="Reset" title="Reset" onclick={handleClickReset}
+                        class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout multiple-rows="true" class="slds-align_absolute-center">
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4"
+                flexibility="auto" padding="around-small">
+                <lightning-input type="number" name="input4" label="No of months required to Payoff Loan" value={noMonPayOff} disabled>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4"
+                flexibility="auto" padding="around-small">
+                <lightning-input type="number" name="input5" label="Total Payment" value={totalPayment} disabled>
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+    <!-- Chart goes here -->
+    <c-loan-chart total-payment={totalPayment} principal-amt={outLoanAmt}></c-loan-chart>
+
+</template>
